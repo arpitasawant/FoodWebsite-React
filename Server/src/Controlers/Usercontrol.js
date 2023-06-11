@@ -8,7 +8,7 @@ const signup=async(req,res)=>{
     //existng user
     // hash password
     // user creation
-    // token creation
+    
            const {name,email,mnum,password}=req.body;
 
            try {
@@ -25,6 +25,7 @@ const signup=async(req,res)=>{
                     mnum:mnum,
                     password:hashpassword
                 });
+               // token creation
 
                 const token=jwt.sign({email:result.email,id:result._id}, SECRET_KEY);
                 res.status(201).json({name:result,token:token});
